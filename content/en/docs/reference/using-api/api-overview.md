@@ -33,13 +33,14 @@ multiple API versions, each at a different API path. For example: `/api/v1` or
 `/apis/extensions/v1beta1`.
 
 The version is set at the API level rather than at the resource or field level to:
+
 - Ensure that the API presents a clear and consistent view of system resources and behavior.
 - Enable control access to end-of-life and/or experimental APIs.
 
 The JSON and Protobuf serialization schemas follow the same guidelines for schema changes. The following descriptions cover both formats.
 
 {{< note >}}
-**Note:** the API versioning and software versioning are indirectly related.  The [API and release
+**Note:** The API versioning and software versioning are indirectly related.  The [API and release
 versioning proposal](https://git.k8s.io/community/contributors/design-proposals/release/versioning.md) describes the relationship between API versioning and software versioning.
 {{< /note >}}
 

@@ -2,9 +2,11 @@
 reviewers:
 - thockin
 title: Cluster Networking
+content_template: templates/concept
 weight: 50
 ---
 
+{{% capture overview %}}
 Kubernetes approaches networking somewhat differently than Docker does by
 default.  There are 4 distinct networking problems to solve:
 
@@ -14,10 +16,11 @@ default.  There are 4 distinct networking problems to solve:
 3. Pod-to-Service communications: this is covered by [services](/docs/concepts/services-networking/service/).
 4. External-to-Service communications: this is covered by [services](/docs/concepts/services-networking/service/).
 
+{{% /capture %}}
+
 {{< toc >}}
 
-
-## Summary
+{{% capture body %}}
 
 Kubernetes assumes that pods can communicate with other pods, regardless of
 which host they land on.  Every pod gets its own IP address so you do not
@@ -198,6 +201,10 @@ sysctl net.ipv4.ip_forward=1
 The result of all this is that all `Pods` can reach each other and can egress
 traffic to the internet.
 
+### Knitter
+
+[Knitter](https://github.com/ZTE/Knitter/) is a network solution which supports multiple networking in Kubernetes. It provides the ability of tenant management and network management. Knitter includes a set of end-to-end NFV container networking solutions besides multiple network planes, such as keeping IP address for applications, IP address migration, etc.
+
 ### Kube-router
 
 [Kube-router](https://github.com/cloudnativelabs/kube-router) is a purpose-built networking solution for Kubernetes that aims to provide high performance and operational simplicity. Kube-router provides a Linux [LVS/IPVS](http://www.linuxvirtualserver.org/software/ipvs.html)-based service proxy, a Linux kernel forwarding-based pod-to-pod networking solution with no overlays, and iptables/ipset-based network policy enforcer.
@@ -266,9 +273,12 @@ Weave Net runs as a [CNI plug-in](https://www.weave.works/docs/net/latest/cni-pl
 or stand-alone.  In either version, it doesn't require any configuration or extra code
 to run, and in both cases, the network provides one IP address per pod - as is standard for Kubernetes.
 
+{{% /capture %}}
 
-## Other reading
+{{% capture whatsnext %}}
 
 The early design of the networking model and its rationale, and some future
 plans are described in more detail in the [networking design
 document](https://git.k8s.io/community/contributors/design-proposals/network/networking.md).
+
+{{% /capture %}}
