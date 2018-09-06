@@ -8,7 +8,7 @@ weight: 40
 
 {{% capture overview %}}
 
-{{ feature-state for_k8s_version="1.11" state="stable" }}
+{{< feature-state for_k8s_version="1.11" state="stable" >}}
 
 The lifecycle of the kubeadm CLI tool is decoupled from the
 [Kubernetes Node Agent](/docs/reference/command-line-tools-reference/kubelet), which is a daemon that runs
@@ -20,15 +20,13 @@ system or service manager. When the kubelet is installed using DEBs or RPMs,
 systemd is configured to manage the kubelet. You can use a different service
 manager instead, but you need to configure it manually.
 
-Some kublet configuration details need to be the same across all kubelets involved in the cluster, while
+Some kubelet configuration details need to be the same across all kubelets involved in the cluster, while
 other configuration aspects need to be set on a per-kubelet basis, to accommodate the different
 characteristics of a given machine, such as OS, storage, and networking. You can manage the configuration
 of your kubelets manually, but [kubeadm now provides a `MasterConfig` API type for managing your
 kubelet configurations centrally](#configure-kubelets-using-kubeadm).
 
 {{% /capture %}}
-
-{{ toc }}
 
 {{% capture body %}}
 
@@ -37,9 +35,9 @@ kubelet configurations centrally](#configure-kubelets-using-kubeadm).
 The following sections describe patterns to kubelet configuration that are simplified by
 using kubeadm, rather than managing the kubelet configuration for each Node manually.
 
-### Propogating cluster-level configuration to each kubelet
+### Propagating cluster-level configuration to each kubelet
 
-You can provide the kubelet with default values to be used by `kubelet init` and `kubelet join`
+You can provide the kubelet with default values to be used by `kubeadm init` and `kubeadm join`
 commands. Interesting examples include using a different CRI runtime or setting the default subnet
 used by services.
 
@@ -98,8 +96,6 @@ such as systemd.
 
 ## Configure kubelets using kubeadm
 
-{{ feature-state for_k8s_version="1.11" state="stable" }}
-
 The kubeadm config API type `MasterConfiguration` embeds the kubelet's ComponentConfig under
 the `.kubeletConfiguration.baseConfig` key. Any user writing a `MasterConfiguration`
 file can use this configuration key to also set the base-level configuration for all kubelets
@@ -114,7 +110,7 @@ initializing. A kubelet configuration file is also written to `/etc/kubernetes/k
 baseline cluster-wide configuration for all kubelets in the cluster. This configuration file
 points to the client certificates that allow the kubelet to communicate with the API server. This
 addresses the need to
-[propogate cluster-level configuration to each kubelet](#propagating-cluster-level-configuration-to-each-kubelet).
+[propagate cluster-level configuration to each kubelet](#propagating-cluster-level-configuration-to-each-kubelet).
 
 To address the second pattern of
 [providing instance-specific configuration details](#providing-instance-specific-configuration-details),
