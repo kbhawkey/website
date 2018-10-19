@@ -97,6 +97,7 @@ few commands. These solutions are actively developed and have active community s
 * [Madcore.Ai](https://madcore.ai/)
 * [Oracle Container Engine for K8s](https://docs.us-phoenix-1.oraclecloud.com/Content/ContEng/Concepts/contengprerequisites.htm)
 * [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service)
+* [Giant Swarm](https://giantswarm.io)
 * [Rancher 2.0](https://rancher.com/docs/rancher/v2.x/en/)
 * [Stackpoint.io](/docs/setup/turnkey/stackpoint/)
 * [Tectonic by CoreOS](https://coreos.com/tectonic)
@@ -113,6 +114,7 @@ few commands.
 * [Kubermatic](https://www.loodse.com)
 * [Kublr](https://kublr.com/)
 * [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service)
+* [Giant Swarm](https://giantswarm.io)
 * [Rancher 2.0](https://rancher.com/docs/rancher/v2.x/en/)
 * [SUSE CaaS Platform](https://www.suse.com/products/caas-platform)
 * [SUSE Cloud Application Platform](https://www.suse.com/products/cloud-application-platform/)
@@ -160,6 +162,7 @@ These solutions are combinations of cloud providers and operating systems not co
 ### Bare Metal
 
 * [CoreOS](/docs/setup/custom-cloud/coreos/)
+* [Digital Rebar](/docs/setup/on-premises-metal/krib/)
 * [Fedora (Single Node)](/docs/getting-started-guides/fedora/fedora_manual_config/)
 * [Fedora (Multi Node)](/docs/getting-started-guides/fedora/flannel_multi_node_cluster/)
 * [Kubernetes on Ubuntu](/docs/getting-started-guides/ubuntu/)
@@ -221,6 +224,7 @@ any                  | [Gardener Cluster-Operator](https://kubernetes.io/blog/20
 Alibaba Cloud Container Service For Kubernetes | ROS        | CentOS | flannel/Terway       | [docs](https://www.aliyun.com/product/containerservice)                    |  Commercial
 Agile Stacks       | Terraform   | CoreOS | multi-support | [docs](https://www.agilestacks.com/products/kubernetes) | Commercial
 IBM Cloud Kubernetes Service | | Ubuntu | calico | [docs](https://console.bluemix.net/docs/containers/container_index.html) | Commercial
+Digital Rebar        | kubeadm      | any    | metal       | [docs](/docs/setup/on-premises-metal/krib/)                                  | Community ([@digitalrebar](https://github.com/digitalrebar))
 
 
 {{< note >}}
