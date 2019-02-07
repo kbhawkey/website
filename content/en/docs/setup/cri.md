@@ -20,7 +20,7 @@ You may become the root user by executing `sudo -i` after SSH-ing to each host.
 ## Docker
 
 On each of your machines, install Docker.
-Version 18.06 is recommended, but 1.11, 1.12, 1.13 and 17.03 are known to work as well.
+Version 18.06 is recommended, but 1.11, 1.12, 1.13, 17.03 and 18.09 are known to work as well.
 Keep track of the latest verified Docker version in the Kubernetes release notes.
 
 Use the following commands to install Docker on your system:
