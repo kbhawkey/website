@@ -39,7 +39,7 @@ easy-to-install application for your Mac or Windows environment that enables you
 start coding and deploying in containers in minutes on a single-node Kubernetes 
 cluster.
 
-* [Minishift](https://docs.okd.io/latest/minishift/) installs the community version of the Kubernetes enterprise platform OpenShift for local development & testing.  It offers an All-In-One VM (`minishift start`) for Windows, macOS and Linux and the containeriz based `oc cluster up` (Linux only) and [comes with some easy to install Add Ons](https://github.com/minishift/minishift-addons/tree/master/add-ons).
+* [Minishift](https://docs.okd.io/latest/minishift/) installs the community version of the Kubernetes enterprise platform OpenShift for local development & testing.  It offers an all-in-one VM (`minishift start`) for Windows, macOS, and Linux. The container start is based on `oc cluster up` (Linux only). You can also install [the included add-ons](https://github.com/minishift/minishift-addons/tree/master/add-ons).
 
 * [MicroK8s](https://microk8s.io/) provides a single command installation of the latest Kubernetes release on a local machine for development and testing. Setup is quick, fast (~30 sec) and supports many plugins including Istio with a single command.
 
@@ -74,6 +74,8 @@ cluster.
 * [Kubermatic](https://www.loodse.com) provides managed Kubernetes clusters for various public clouds, including AWS and Digital Ocean, as well as on-premises with OpenStack integration.
 
 * [Kublr](https://kublr.com) offers enterprise-grade secure, scalable, highly reliable Kubernetes clusters on AWS, Azure, GCP, and on-premise. It includes out-of-the-box backup and disaster recovery, multi-cluster centralized logging and monitoring, and built-in alerting.
+
+* [KubeSail](https://kubesail.com) is an easy, free way to try Kubernetes.
 
 * [Madcore.Ai](https://madcore.ai) is devops-focused CLI tool for deploying Kubernetes infrastructure in AWS. Master, auto-scaling group nodes with spot-instances, ingress-ssl-lego, Heapster, and Grafana.
 
@@ -121,6 +123,7 @@ few commands. These solutions are actively developed and have active community s
 * [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service)
 * [Rancher 2.0](https://rancher.com/docs/rancher/v2.x/en/)
 * [Stackpoint.io](/docs/setup/turnkey/stackpoint/)
+* [Supergiant.io](https://supergiant.io/)
 * [Tectonic by CoreOS](https://coreos.com/tectonic)
 * [VMware Cloud PKS](https://cloud.vmware.com/vmware-cloud-pks)
 
@@ -155,13 +158,10 @@ it will be easier than starting from scratch. If you do want to start from scrat
 have special requirements, or just because you want to understand what is underneath a Kubernetes
 cluster, try the [Getting Started from Scratch](/docs/setup/scratch/) guide.
 
-If you are interested in supporting Kubernetes on a new platform, see
-[Writing a Getting Started Guide](https://git.k8s.io/community/contributors/devel/writing-a-getting-started-guide.md).
-
 ### Universal
 
 If you already have a way to configure hosting resources, use
-[kubeadm](/docs/setup/independent/create-cluster-kubeadm/) to easily bring up a cluster
+[kubeadm](/docs/setup/independent/create-cluster-kubeadm/) to bring up a cluster
 with a single command per machine.
 
 ### Cloud

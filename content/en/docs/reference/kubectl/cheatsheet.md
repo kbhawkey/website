@@ -29,6 +29,13 @@ source <(kubectl completion bash) # setup autocomplete in bash into the current 
 echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
 ```
 
+You can also use a shorthand alias for `kubectl` that also works with completion: 
+
+```bash
+alias k=kubectl
+complete -F __start_kubectl k
+```
+
 ### ZSH
 
 ```bash
@@ -138,6 +145,10 @@ kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
 # Get the version label of all pods with label app=cassandra
 kubectl get pods --selector=app=cassandra rc -o \
   jsonpath='{.items[*].metadata.labels.version}'
+
+# Get all worker nodes (use a selector to exclude results that have a label
+# named 'node-role.kubernetes.io/master')
+kubectl get node --selector='!node-role.kubernetes.io/master'
 
 # Get all running pods in the namespace
 kubectl get pods --field-selector=status.phase=Running
