@@ -46,7 +46,13 @@ a Kubernetes cluster from scratch.
 
 ## Local-machine Solutions
 
+### Community Supported Tools
+
 * [Minikube](/docs/setup/minikube/) is a method for creating a local, single-node Kubernetes cluster for development and testing. Setup is completely automated and doesn't require a cloud provider account.
+
+* [Kubeadm-dind](https://github.com/kubernetes-sigs/kubeadm-dind-cluster) is a multi-node (while minikube is single-node) Kubernetes cluster which only requires a docker daemon. It uses docker-in-docker technique to spawn the Kubernetes cluster.
+
+### Ecosystem Tools
 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop) is an
 easy-to-install application for your Mac or Windows environment that enables you to
@@ -61,9 +67,9 @@ cluster.
 
 * [IBM Cloud Private-CE (Community Edition) on Linux Containers](https://github.com/HSBawa/icp-ce-on-linux-containers) is a Terraform/Packer/BASH based Infrastructure as Code (IaC) scripts to create a seven node (1 Boot, 1 Master, 1 Management, 1 Proxy and 3 Workers) LXD cluster on  Linux Host.
 
-* [Kubeadm-dind](https://github.com/kubernetes-sigs/kubeadm-dind-cluster) is a multi-node (while minikube is single-node) Kubernetes cluster which only requires a docker daemon. It uses docker-in-docker technique to spawn the Kubernetes cluster.
-
 * [Ubuntu on LXD](/docs/getting-started-guides/ubuntu/local/) supports a nine-instance deployment on localhost.
+
+* [Kind](https://kind.sigs.k8s.io/), Kubernetes IN Docker is a tool for running local Kubernetes clusters using Docker containers as "nodes". It is primarily designed for testing Kubernetes, initially targeting the conformance tests.
 
 ## Hosted Solutions
 
@@ -99,7 +105,7 @@ cluster.
 
 * [OpenShift Online](https://www.openshift.com/features/) provides free hosted access for Kubernetes applications.
 
-* [Oracle Container Engine for Kubernetes](https://docs.us-phoenix-1.oraclecloud.com/Content/ContEng/Concepts/contengoverview.htm) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
+* [Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE)](https://docs.us-phoenix-1.oraclecloud.com/Content/ContEng/Concepts/contengoverview.htm) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
 
 * [Platform9](https://platform9.com/products/kubernetes/) offers managed Kubernetes on-premises or on any public cloud, and provides 24/7 health monitoring and alerting. (Kube2go, a web-UI driven Kubernetes cluster deployment service Platform9 released, has been integrated to Platform9 Sandbox.)
 
@@ -133,12 +139,11 @@ few commands. These solutions are actively developed and have active community s
 * [Madcore.Ai](https://madcore.ai/)
 * [Nirmata](https://nirmata.com/)
 * [Nutanix Karbon](https://www.nutanix.com/products/karbon/)
-* [Oracle Container Engine for K8s](https://docs.us-phoenix-1.oraclecloud.com/Content/ContEng/Concepts/contengprerequisites.htm)
+* [Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE)](https://docs.us-phoenix-1.oraclecloud.com/Content/ContEng/Concepts/contengprerequisites.htm)
 * [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service)
 * [Rancher 2.0](https://rancher.com/docs/rancher/v2.x/en/)
 * [Stackpoint.io](/docs/setup/turnkey/stackpoint/)
 * [Supergiant.io](https://supergiant.io/)
-* [Tectonic by CoreOS](https://coreos.com/tectonic)
 * [VMware Cloud PKS](https://cloud.vmware.com/vmware-cloud-pks)
 * [VMware Enterprise PKS](https://cloud.vmware.com/vmware-enterprise-pks)
 
@@ -170,10 +175,7 @@ few commands.
 Kubernetes can run on a wide range of Cloud providers and bare-metal environments, and with many
 base operating systems.
 
-If you can find a guide below that matches your needs, use it. It may be a little out of date, but
-it will be easier than starting from scratch. If you do want to start from scratch, either because you
-have special requirements, or just because you want to understand what is underneath a Kubernetes
-cluster, try the [Getting Started from Scratch](/docs/setup/scratch/) guide.
+If you can find a guide below that matches your needs, use it.
 
 ### Universal
 
@@ -186,7 +188,6 @@ with a single command per machine.
 These solutions are combinations of cloud providers and operating systems not covered by the above solutions.
 
 * [Cloud Foundry Container Runtime (CFCR)](https://docs-cfcr.cfapps.io/)
-* [CoreOS on AWS or GCE](/docs/setup/custom-cloud/coreos/)
 * [Gardener](https://gardener.cloud/)
 * [Kublr](www.kublr.com/kubernetes.io/setup-hosted-solution)
 * [Kubernetes on Ubuntu](/docs/getting-started-guides/ubuntu/)
@@ -197,20 +198,17 @@ These solutions are combinations of cloud providers and operating systems not co
 ### On-Premises VMs
 
 * [Cloud Foundry Container Runtime (CFCR)](https://docs-cfcr.cfapps.io/)
-* [CloudStack](/docs/setup/on-premises-vm/cloudstack/) (uses Ansible, CoreOS and flannel)
+* [CloudStack](/docs/setup/on-premises-vm/cloudstack/) (uses Ansible)
 * [Fedora (Multi Node)](/docs/getting-started-guides/fedora/flannel_multi_node_cluster/) (uses Fedora and flannel)
 * [Nutanix AHV](https://www.nutanix.com/products/acropolis/virtualization/)
 * [OpenShift Container Platform](https://www.openshift.com/products/container-platform/) (OCP) Kubernetes platform by [Red Hat](https://www.redhat.com)
 * [oVirt](/docs/setup/on-premises-vm/ovirt/)
-* [Vagrant](/docs/setup/custom-cloud/coreos/) (uses CoreOS and flannel)
-* [VMware](/docs/setup/custom-cloud/coreos/) (uses CoreOS and flannel)
 * [VMware Essential PKS](https://cloud.vmware.com/vmware-essential-PKS)
-* [VMware vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/)
+* [VMware vSphere](https://github.com/kubernetes/cloud-provider-vsphere)
 * [VMware vSphere, OpenStack, or Bare Metal](/docs/getting-started-guides/ubuntu/) (uses Juju, Ubuntu and flannel)
 
 ### Bare Metal
 
-* [CoreOS](/docs/setup/custom-cloud/coreos/)
 * [Digital Rebar](/docs/setup/on-premises-metal/krib/)
 * [Docker Enterprise](https://www.docker.com/products/docker-enterprise)
 * [Fedora (Single Node)](/docs/getting-started-guides/fedora/fedora_manual_config/)
@@ -254,11 +252,8 @@ Bare-metal           | custom       | Fedora | flannel     | [docs](/docs/gettin
 libvirt              | custom       | Fedora | flannel     | [docs](/docs/getting-started-guides/fedora/flannel_multi_node_cluster/)      |  Community ([@aveshagarwal](https://github.com/aveshagarwal))
 KVM                  | custom       | Fedora | flannel     | [docs](/docs/getting-started-guides/fedora/flannel_multi_node_cluster/)      |  Community ([@aveshagarwal](https://github.com/aveshagarwal))
 DCOS                 | Marathon   | CoreOS/Alpine | custom | [docs](/docs/getting-started-guides/dcos/)                                   |  Community ([Kubernetes-Mesos Authors](https://github.com/mesosphere/kubernetes-mesos/blob/master/AUTHORS.md))
-AWS                  | CoreOS       | CoreOS | flannel     | [docs](/docs/setup/turnkey/aws/)                                 |  Community
-GCE                  | CoreOS       | CoreOS | flannel     | [docs](/docs/getting-started-guides/coreos/)                                 |  Community ([@pires](https://github.com/pires))
-Vagrant              | CoreOS       | CoreOS | flannel     | [docs](/docs/getting-started-guides/coreos/)                                 |  Community ([@pires](https://github.com/pires), [@AntonioMeireles](https://github.com/AntonioMeireles))
 CloudStack           | Ansible      | CoreOS | flannel     | [docs](/docs/getting-started-guides/cloudstack/)                             |  Community ([@sebgoa](https://github.com/sebgoa))
-VMware vSphere       | any          | multi-support | multi-support     | [docs](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/)  |  [Community](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/contactus.html)
+VMware vSphere       | any          | multi-support | multi-support     | [docs](https://github.com/kubernetes/cloud-provider-vsphere/tree/master/docs)  |  [Community](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/contactus.html)
 Bare-metal           | custom       | CentOS | flannel      | [docs](/docs/getting-started-guides/centos/centos_manual_config/)            |  Community ([@coolsvap](https://github.com/coolsvap))
 lxd                  | Juju         | Ubuntu | flannel/canal            | [docs](/docs/getting-started-guides/ubuntu/local/)              |  [Commercial](https://www.ubuntu.com/kubernetes) and [Community](https://jujucharms.com/kubernetes)
 AWS                  | Juju         | Ubuntu | flannel/calico/canal     | [docs](/docs/getting-started-guides/ubuntu/)                    |  [Commercial](https://www.ubuntu.com/kubernetes) and [Community](https://jujucharms.com/kubernetes)
@@ -272,7 +267,6 @@ AWS                  | Saltstack    | Debian | AWS         | [docs](/docs/setup/
 AWS                  | kops         | Debian | AWS         | [docs](https://github.com/kubernetes/kops/)                                  |  Community ([@justinsb](https://github.com/justinsb))
 Bare-metal           | custom       | Ubuntu | flannel     | [docs](/docs/getting-started-guides/ubuntu/)                                 |  Community ([@resouer](https://github.com/resouer), [@WIZARD-CXY](https://github.com/WIZARD-CXY))
 oVirt                |              |        |             | [docs](/docs/setup/on-premises-vm/ovirt/)                                  |  Community ([@simon3z](https://github.com/simon3z))
-any                  | any          | any    | any         | [docs](/docs/setup/scratch/)                                |  Community ([@erictune](https://github.com/erictune))
 any                  | any          | any    | any         | [docs](http://docs.projectcalico.org/v2.2/getting-started/kubernetes/installation/)                                |  Commercial and Community
 any                  | RKE          | multi-support    | flannel or canal         | [docs](https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/)                                |  [Commercial](https://rancher.com/what-is-rancher/overview/) and [Community](https://github.com/rancher/rancher)
 any                  | [Gardener Cluster-Operator](https://kubernetes.io/blog/2018/05/17/gardener/) | multi-support | multi-support | [docs](https://gardener.cloud) | [Project/Community](https://github.com/gardener) and [Commercial]( https://cloudplatform.sap.com/)
@@ -283,6 +277,7 @@ Digital Rebar        | kubeadm      | any    | metal       | [docs](/docs/setup/
 VMware Cloud PKS     |              | Photon OS | Canal | [docs](https://docs.vmware.com/en/VMware-Kubernetes-Engine/index.html) | Commercial
 VMware Enterprise PKS     | BOSH       | Ubuntu | VMware NSX-T/flannel | [docs](https://docs.vmware.com/en/VMware-Enterprise-PKS/) | Commercial
 Mirantis Cloud Platform | Salt | Ubuntu | multi-support | [docs](https://docs.mirantis.com/mcp/) | Commercial
+IAAS Provider- Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) |              |              | multi-support | [docs](https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm) | Commercial
 
 {{< note >}}
 The above table is ordered by version test/used in nodes, followed by support level.

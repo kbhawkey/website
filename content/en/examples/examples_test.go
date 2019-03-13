@@ -88,6 +88,8 @@ func getCodecForObject(obj runtime.Object) (runtime.Codec, error) {
 func validateObject(obj runtime.Object) (errors field.ErrorList) {
 	// Enable CustomPodDNS for testing
 	utilfeature.DefaultFeatureGate.Set("CustomPodDNS=true")
+	// Enable TokenRequestProjection for ServiceAccountTokenVolumeProjection testing
+	utilfeature.DefaultFeatureGate.Set("TokenRequestProjection=true")
 	switch t := obj.(type) {
 	case *admissionregistration.InitializerConfiguration:
 		// cluster scope resource
@@ -443,18 +445,25 @@ func TestExampleObjectSchemas(t *testing.T) {
 			"replicaset":        {&extensions.ReplicaSet{}},
 		},
 		"pods": {
-			"commands":                {&api.Pod{}},
-			"init-containers":         {&api.Pod{}},
-			"lifecycle-events":        {&api.Pod{}},
-			"pod-nginx-specific-node": {&api.Pod{}},
-			"pod-nginx":               {&api.Pod{}},
-			"pod-with-node-affinity":  {&api.Pod{}},
-			"pod-with-pod-affinity":   {&api.Pod{}},
-			"private-reg-pod":         {&api.Pod{}},
-			"share-process-namespace": {&api.Pod{}},
-			"simple-pod":              {&api.Pod{}},
-			"pod-rs":                  {&api.Pod{}, &api.Pod{}},
-			"two-container-pod":       {&api.Pod{}},
+			"commands":                             {&api.Pod{}},
+			"init-containers":                      {&api.Pod{}},
+			"lifecycle-events":                     {&api.Pod{}},
+			"pod-configmap-env-var-valueFrom":      {&api.Pod{}},
+			"pod-configmap-envFrom":                {&api.Pod{}},
+			"pod-configmap-volume-specific-key":    {&api.Pod{}},
+			"pod-configmap-volume":                 {&api.Pod{}},
+			"pod-multiple-configmap-env-variable":  {&api.Pod{}},
+			"pod-nginx-specific-node":              {&api.Pod{}},
+			"pod-nginx":                            {&api.Pod{}},
+			"pod-projected-svc-token":              {&api.Pod{}},
+			"pod-rs":                               {&api.Pod{}, &api.Pod{}},
+			"pod-single-configmap-env-variable":    {&api.Pod{}},
+			"pod-with-node-affinity":               {&api.Pod{}},
+			"pod-with-pod-affinity":                {&api.Pod{}},
+			"private-reg-pod":                      {&api.Pod{}},
+			"share-process-namespace":              {&api.Pod{}},
+			"simple-pod":                           {&api.Pod{}},
+			"two-container-pod":                    {&api.Pod{}},
 		},
 		"pods/config": {
 			"redis-pod": {&api.Pod{}},
