@@ -11,7 +11,7 @@ explains how those commands are organized and how to use them to manage live obj
 {{% /capture %}}
 
 {{% capture prerequisites %}}
-Install [`kubectl`](docs/tasks/tools/install-kubectl/).
+Install [`kubectl`](/docs/tasks/tools/install-kubectl/).
 
 {{< include "task-tutorial-prereqs.md" >}} {{< version-check >}}
 
@@ -27,7 +27,7 @@ The `kubectl` tool supports three kinds of object management:
 * Imperative object configuration
 * Declarative object configuration
 
-See [Kubernetes Object Management](/docs/concepts/overview/object-management-kubectl/overview/)
+See [Kubernetes Object Management](/docs/concepts/overview/working-with-objects/object-management/)
 for a discussion of the advantages and disadvantage of each kind of object management.
 
 ## How to create objects

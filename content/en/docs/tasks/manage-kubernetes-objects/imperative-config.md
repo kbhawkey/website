@@ -12,7 +12,7 @@ This document explains how to define and manage objects using configuration file
 
 {{% capture prerequisites %}}
 
-Install [`kubectl`](docs/tasks/tools/install-kubectl/).
+Install [`kubectl`](/docs/tasks/tools/install-kubectl/).
 
 {{< include "task-tutorial-prereqs.md" >}} {{< version-check >}}
 
@@ -110,7 +110,7 @@ several manual steps.
 1. Export the live object to a local object configuration file:
 
 ```shell
-kubectl get <kind>/<name> -o yaml --export > <kind>_<name>.yaml
+kubectl get <kind>/<name> -o yaml > <kind>_<name>.yaml
 ```
 
 1. Manually remove the status field from the object configuration file.
