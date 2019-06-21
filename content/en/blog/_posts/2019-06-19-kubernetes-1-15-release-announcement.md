@@ -65,7 +65,7 @@ Work on making Kubernetes installation, upgrade and configuration even more robu
 
 **kubeadm**, the cluster lifecycle building block, continues to receive features and stability work required for bootstrapping production clusters efficiently. kubeadm has promoted high availability (HA) capability to beta, allowing users to use the familiar `kubeadm init` and `kubeadm join` commands to [configure and deploy an HA control plane](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/). An entire new test suite has been created specifically for ensuring these features will stay stable over time.
 
-Certificate management has become more robust in 1.15, with kubeadm now seamlessly rotating all your certificates (on upgrades) before they expire. Check the [kubeadm documentation](https://github.com/kubernetes/website/blob/dev-1.15/content/en/docs/reference/setup-tools/kubeadm/kubeadm-alpha.md) for information on how to manage your certificates.
+Certificate management has become more robust in 1.15, with kubeadm now seamlessly rotating all your certificates (on upgrades) before they expire. Check the [kubeadm documentation](/docs/reference/setup-tools/kubeadm/kubeadm-alpha/) for information on how to manage your certificates.
 
 The kubeadm configuration file API is moving from v1beta1 to v1beta2 in 1.15.
 
@@ -105,7 +105,7 @@ If you’re interested in exploring these features more in depth, check back thi
 
 **Release team**
 
-This release is made possible through the efforts of hundreds of individuals who contributed both technical and non-technical content. Special thanks to the [release team](https://bit.ly/k8s114-team) led by Claire Laurence, Senior Technical Program Manager at Pivotal Software. The 38 individuals on the release team coordinated many aspects of the release, from documentation to testing, validation, and feature completeness.
+This release is made possible through the efforts of hundreds of individuals who contributed both technical and non-technical content. Special thanks to the [release team](https://git.k8s.io/sig-release/releases/release-1.15/release_team.md) led by Claire Laurence, Senior Technical Program Manager at Pivotal Software. The 38 individuals on the release team coordinated many aspects of the release, from documentation to testing, validation, and feature completeness.
 
 As the Kubernetes community has grown, our release process represents an amazing demonstration of collaboration in open source software development. Kubernetes continues to gain new users at a rapid clip. This growth creates a positive feedback cycle where more contributors commit code creating a more vibrant ecosystem. Kubernetes has had over [32,000 individual contributors](https://k8s.devstats.cncf.io/d/24/overall-project-statistics?orgId=1) to date and an active community of more than 66,000 people.
 
