@@ -18,7 +18,7 @@ deliver a functioning Kubernetes cluster.
 ## Master Components
 
 Master components provide the cluster's control plane. Master components make global decisions about the
-cluster (for example, scheduling), and they detect and respond to cluster events (for example, starting up a new pod when a replication controller's `replicas` field is unsatisfied).
+cluster (for example, scheduling), and they detect and respond to cluster events (for example, starting up a new {{< glossary_tooltip text="pod" term_id="pod">}} when a deployment's `replicas` field is unsatisfied).
 
 Master components can be run on any machine in the cluster. However,
 for simplicity, set up scripts typically start all master components on
@@ -111,5 +111,8 @@ A [Cluster-level logging](/docs/concepts/cluster-administration/logging/) mechan
 saving container logs to a central log store with search/browsing interface.
 
 {{% /capture %}}
-
-
+{{% capture whatsnext %}}
+* Learn about [Nodes](/docs/concepts/architecture/nodes/)
+* Learn about [kube-scheduler](/docs/concepts/scheduling/kube-scheduler/)
+* Read etcd's official [documentation](https://etcd.io/docs/)
+{{% /capture %}}
