@@ -1,7 +1,6 @@
 ---
 title: kubectl Cheat Sheet
 reviewers:
-- bgrant0607
 - erictune
 - krousey
 - clove
@@ -159,8 +158,12 @@ kubectl get services --sort-by=.metadata.name # List Services Sorted by Name
 # List pods Sorted by Restart Count
 kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
 
+# List pods in test namespace sorted by capacity 
+
+kubectl get pods -n test --sort-by=.spec.capacity.storage  
+
 # Get the version label of all pods with label app=cassandra
-kubectl get pods --selector=app=cassandra rc -o \
+kubectl get pods --selector=app=cassandra -o \
   jsonpath='{.items[*].metadata.labels.version}'
 
 # Get all worker nodes (use a selector to exclude results that have a label
@@ -345,11 +348,11 @@ Output format | Description
 
 ### Kubectl output verbosity and debugging
 
-Kubectl verbosity is controlled with the `-v` or `--v` flags followed by an integer representing the log level. General Kubernetes logging conventions and the associated log levels are described [here](https://github.com/kubernetes/community/blob/master/contributors/devel/logging.md).
+Kubectl verbosity is controlled with the `-v` or `--v` flags followed by an integer representing the log level. General Kubernetes logging conventions and the associated log levels are described [here](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md).
 
 Verbosity | Description
 --------------| -----------
-`--v=0` | Generally useful for this to ALWAYS be visible to an operator.
+`--v=0` | Generally useful for this to *always* be visible to a cluster operator.
 `--v=1` | A reasonable default log level if you don't want verbosity.
 `--v=2` | Useful steady state information about the service and important log messages that may correlate to significant changes in the system. This is the recommended default log level for most systems.
 `--v=3` | Extended information about changes.
