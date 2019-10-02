@@ -40,7 +40,7 @@ are available to all namespaces.
 For example, if you save the following CustomResourceDefinition to `resourcedefinition.yaml`:
 
 {{< tabs name="CustomResourceDefinition_example_1" >}}
-{{% tab name="admissionregistration.k8s.io/v1" %}}
+{{% tab name="apiextensions.k8s.io/v1" %}}
 ```yaml
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -383,7 +383,7 @@ For CustomResourceDefinitions created in `apiextensions.k8s.io/v1beta1`, if a [s
 
 If pruning is enabled, unspecified fields in CustomResources on creation and on update are dropped.
 
-Compare the CustomResourceDefinition `crontabs.stable.example.com` above. It has pruning enabled (both in `apiextensions.k8s.io/v1` and `apiextensions.k8s.io/v1beta1). Hence, if you save the following YAML to `my-crontab.yaml`:
+Compare the CustomResourceDefinition `crontabs.stable.example.com` above. It has pruning enabled (both in `apiextensions.k8s.io/v1` and `apiextensions.k8s.io/v1beta1`). Hence, if you save the following YAML to `my-crontab.yaml`:
 
 ```yaml
 apiVersion: "stable.example.com/v1"
