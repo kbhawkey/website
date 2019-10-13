@@ -44,13 +44,13 @@ called SIG Docs. We [communicate](#participate-in-sig-docs-discussions) using a 
 weekly video meetings. New participants are welcome. For more information, see
 [Participating in SIG Docs](/docs/contribute/participating/).
 
-### Content guildelines
+### Content guidelines
 
 The SIG Docs community created guidelines about what kind of content is allowed 
 in the Kubernetes documentation. Look over the [Documentation Content 
 Guide](/docs/contribute/style/content-guide/) to determine if the content 
 contribution you want to make is allowed. You can ask questions about allowed 
-content in the [#sig-docs]((#participate-in-sig-docs-discussions)) Slack 
+content in the [#sig-docs](#participate-in-sig-docs-discussions) Slack
 channel.
 
 ### Style guidelines
