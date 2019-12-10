@@ -37,8 +37,6 @@ aliases:
   sig-docs-en-owners: # Admins for English content
     - bradamant3
     - bradtopol
-    - chenopis
-    - cody-clark
     - daminisatya
     - gochist
     - jaredbhatti
@@ -50,21 +48,20 @@ aliases:
     - ryanmcginnis
     - simplytunde
     - steveperry-53
-    - tengqm
-    - tfogo
     - xiangpengzhao
     - zacharysarah
     - zparnold
   sig-docs-en-reviews: # PR reviews for English content
     - rajakavitha1
     - sftim
+    - tengqm
   sig-docs-es-owners: # Admins for Spanish content
     - raelga
     - alexbrand
   sig-docs-es-reviews: # PR reviews for Spanish content
     - raelga
     - alexbrand
-    - glo-pena
+    # glo-pena
     - electrocucaracha
   sig-docs-fr-owners: # Admins for French content
     - remyleone
@@ -116,14 +113,15 @@ aliases:
     - rlenferink
   sig-docs-ja-owners: # Admins for Japanese content
     - cstoku
+    - inductor
     - nasa9084
-    - zacharysarah
   sig-docs-ja-reviews: # PR reviews for Japanese content
     - cstoku
     - inductor
     - makocchi-git
     - MasayaAoyama
     - nasa9084
+    - oke-py
   sig-docs-ko-owners: # Admins for Korean content
     - ClaudiaJKang
     - gochist
@@ -141,21 +139,17 @@ aliases:
     - kbarnard10
     - pwittrock
     - steveperry-53
-    - tengqm
     - zacharysarah
     - zparnold
   sig-docs-zh-owners: # Admins for Chinese content
-    - bradtopol
     - chenopis
     - chenrui333
     - dchen1107
     - haibinxie
     - hanjiayao
     - lichuqiang
-    - lucperkins
     - markthink
     - SataQiu
-    - tengqm
     - xiangpengzhao
     - xichengliudui
     - zacharysarah
@@ -179,8 +173,20 @@ aliases:
     - jcjesus
     - devlware
   sig-docs-vi-owners: # Admins for Vietnamese content
+    - huynguyennovem
     - ngtuna
     - truongnh1992
   sig-docs-vi-reviews: # PR reviews for Vietnamese content
+    - huynguyennovem
     - ngtuna
     - truongnh1992
+  sig-docs-ru-owners: # Admins for Russian content
+    - msheldyakov
+    - aisonaku
+    - potapy4
+    - dianaabv
+  sig-docs-ru-reviews: # PR reviews for Russian content
+    - msheldyakov
+    - aisonaku
+    - potapy4
+    - dianaabv

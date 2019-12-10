@@ -78,22 +78,24 @@ yum install -y kubectl
 {{< /tab >}}
 {{< /tabs >}}
 
+### Install using other package management
 
-### Install with snap
+If you are on Ubuntu or another Linux distribution that support [snap](https://snapcraft.io/docs/core/install) package manager, kubectl is available as a [snap](https://snapcraft.io/) application. 
 
-If you are on Ubuntu or another Linux distribution that support [snap](https://snapcraft.io/docs/core/install) package manager, kubectl is available as a [snap](https://snapcraft.io/) application.
+If you are on Linux and using [Homebrew](https://docs.brew.sh/Homebrew-on-Linux) package manager, kubectl is available for [installation](https://docs.brew.sh/Homebrew-on-Linux#install).
 
-1. Switch to the snap user and run the installation command:
+{{< tabs name="other_kubectl_install" >}}
+{{< tab name="Snap" codelang="bash" >}}
+sudo snap install kubectl --classic
 
-    ```
-    sudo snap install kubectl --classic
-    ```
+kubectl version
+{{< /tab >}}
+{{< tab name="Homebrew" codelang="bash" >}}
+brew install kubectl
 
-2. Test to ensure the version you installed is up-to-date:
-
-    ```
-    kubectl version
-    ```
+kubectl version
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Install kubectl on macOS
 
@@ -189,8 +191,8 @@ If you are on macOS and using [Macports](https://macports.org/) package manager,
     kubectl version
     ```
 {{< note >}}
-[Docker for Windows](https://docs.docker.com/docker-for-windows/#kubernetes) adds its own version of `kubectl` to PATH.
-If you have installed Docker before, you may need to place your PATH entry before the one added by Docker installer or remove the Docker's `kubectl`.
+[Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/#kubernetes) adds its own version of `kubectl` to PATH.
+If you have installed Docker Desktop before, you may need to place your PATH entry before the one added by the Docker Desktop installer or remove the Docker Desktop's `kubectl`.
 {{< /note >}}
 
 ### Install with Powershell from PSGallery
@@ -281,7 +283,7 @@ You can install kubectl as part of the Google Cloud SDK.
 
 ## Verifying kubectl configuration 
 
-In order for kubectl to find and access a Kubernetes cluster, it needs a [kubeconfig file](/docs/tasks/access-application-cluster/configure-access-multiple-clusters/), which is created automatically when you create a cluster using `kube-up.sh` or successfully deploy a Minikube cluster. By default, kubectl configuration is located at `~/.kube/config`.
+In order for kubectl to find and access a Kubernetes cluster, it needs a [kubeconfig file](/docs/tasks/access-application-cluster/configure-access-multiple-clusters/), which is created automatically when you create a cluster using [kube-up.sh](https://github.com/kubernetes/kubernetes/blob/master/cluster/kube-up.sh) or successfully deploy a Minikube cluster. By default, kubectl configuration is located at `~/.kube/config`.
 
 Check that kubectl is properly configured by getting the cluster state:
 
@@ -447,10 +449,10 @@ source <(kubectl completion zsh)
 
 If you have an alias for kubectl, you can extend shell completion to work with that alias:
 
-    ```shell
-    echo 'alias k=kubectl' >>~/.zshrc
-    echo 'complete -F __start_kubectl k' >>~/.zshrc
-    ```
+```shell
+echo 'alias k=kubectl' >>~/.zshrc
+echo 'complete -F __start_kubectl k' >>~/.zshrc
+```
     
 After reloading your shell, kubectl autocompletion should be working.
 

@@ -199,7 +199,7 @@ minikube start --vm-driver=<driver_name>
 * hyperv ([드라이버 설치](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperv-driver))
 다음 IP는 동적이며 변경할 수 있다. `minikube ip`로 알아낼 수 있다.
 * vmware ([드라이버 설치](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#vmware-unified-driver)) (VMware unified driver)
-* none (쿠버네티스 컴포넌트를 VM이 아닌 호스트 상에서 구동한다. 이 드라이버를 사용하려면 도커와 리눅스 환경이 필요하다.([도커 설치](https://docs.docker.com/install/linux/docker-ce/ubuntu/)))
+* none (쿠버네티스 컴포넌트를 VM이 아닌 호스트 상에서 구동한다. 개인용 워크스테이션에서 none 드라이버를 사용하는 것을 권장하지 않는다. 이 드라이버를 사용하려면 도커와 리눅스 환경이 필요하다.([도커 설치](https://docs.docker.com/install/linux/docker-ce/ubuntu/)))
 
 #### 대안적인 컨테이너 런타임 상에서 클러스터 시작하기
 Minikube를 다음의 컨테이너 런타임에서 기동할 수 있다.
@@ -227,7 +227,7 @@ minikube start \
 ```
 {{% /tab %}}
 {{% tab name="CRI-O" %}}
-[CRI-O](https://github.com/kubernetes-incubator/cri-o)를 컨테이너 런타임으로 사용하려면, 다음을 실행한다.
+[CRI-O](https://cri-o.io/)를 컨테이너 런타임으로 사용하려면, 다음을 실행한다.
 ```bash
 minikube start \
     --network-plugin=cni \
@@ -339,7 +339,7 @@ Minikube는 이 컨텍스트를 자동적으로 기본으로 설정한다. 만�
 
 ### 대시보드
 
-[쿠버네티스 대시보드](/docs/tasks/access-application-cluster/web-ui-dashboard/)를 이용하려면, Minikube를 실행한 후 쉘에서 아래 명령어를 실행하여 주소를 확인한다.
+[쿠버네티스 대시보드](/ko/docs/tasks/access-application-cluster/web-ui-dashboard/)를 이용하려면, Minikube를 실행한 후 쉘에서 아래 명령어를 실행하여 주소를 확인한다.
 
 ```shell
 minikube dashboard
@@ -406,7 +406,7 @@ spec:
 
 ## 프라이빗 컨테이너 레지스트리
 
-프라이빗 컨테이너 레지스트리를 이용하려면, [이 페이지](/docs/concepts/containers/images/)의 단계를 따르자.
+프라이빗 컨테이너 레지스트리를 이용하려면, [이 페이지](/ko/docs/concepts/containers/images/)의 단계를 따르자.
 
 `ImagePullSecrets`를 이용하기를 권하지만, Minikube VM 상에서 설정하려 한다면 `/home/docker` 디렉터리에 `.dockercfg`를 두거나 `/home/docker/.docker` 디렉터리에 `config.json`을 둘 수 있다.
 
