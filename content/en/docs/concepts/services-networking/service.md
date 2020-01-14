@@ -184,18 +184,18 @@ An ExternalName Service is a special case of Service that does not have
 selectors and uses DNS names instead. For more information, see the
 [ExternalName](#externalname) section later in this document.
 
-### Endpoint Slices
+### EndpointSlices
 {{< feature-state for_k8s_version="v1.17" state="beta" >}}
 
-Endpoint Slices are an API resource that can provide a more scalable alternative
-to Endpoints. Although conceptually quite similar to Endpoints, Endpoint Slices
+EndpointSlices are an API resource that can provide a more scalable alternative
+to Endpoints. Although conceptually quite similar to Endpoints, EndpointSlices
 allow for distributing network endpoints across multiple resources. By default,
-an Endpoint Slice is considered "full" once it reaches 100 endpoints, at which
-point additional Endpoint Slices will be created to store any additional
+an EndpointSlice is considered "full" once it reaches 100 endpoints, at which
+point additional EndpointSlices will be created to store any additional
 endpoints.
 
-Endpoint Slices provide additional attributes and functionality which is
-described in detail in [Endpoint Slices](/docs/concepts/services-networking/endpoint-slices/).
+EndpointSlices provide additional attributes and functionality which is
+described in detail in [EndpointSlices](/docs/concepts/services-networking/endpoint-slices/).
 
 ## Virtual IPs and service proxies
 
@@ -485,7 +485,7 @@ The default is `ClusterIP`.
 
      with its value. No proxying of any kind is set up.
      {{< note >}}
-     You need CoreDNS version 1.7 or higher to use the `ExternalName` type.
+     You need either kube-dns version 1.7 or CoreDNS version 0.0.8 or higher to use the `ExternalName` type.
      {{< /note >}}
 
 You can also use [Ingress](/docs/concepts/services-networking/ingress/) to expose your Service. Ingress is not a Service type, but it acts as the entry point for your cluster. It lets you consolidate your routing rules into a single resource as it can expose multiple services under the same IP address.
@@ -887,7 +887,7 @@ There are other annotations for managing Cloud Load Balancers on TKE as shown be
     metadata:
       name: my-service
       annotations:
-        # Bind Loadbalancers with speicfied nodes
+        # Bind Loadbalancers with specified nodes
         service.kubernetes.io/qcloud-loadbalancer-backends-label: key in (value1, value2)
 
         # ID of an existing load balancer
@@ -1015,7 +1015,7 @@ worth understanding.
 One of the primary philosophies of Kubernetes is that you should not be
 exposed to situations that could cause your actions to fail through no fault
 of your own. For the design of the Service resource, this means not making
-you choose your own port number for a if that choice might collide with
+you choose your own port number if that choice might collide with
 someone else's choice.  That is an isolation failure.
 
 In order to allow you to choose a port number for your Services, we must
@@ -1196,6 +1196,6 @@ which encompass the current ClusterIP, NodePort, and LoadBalancer modes and more
 
 * Read [Connecting Applications with Services](/docs/concepts/services-networking/connect-applications-service/)
 * Read about [Ingress](/docs/concepts/services-networking/ingress/)
-* Read about [Endpoint Slices](/docs/concepts/services-networking/endpoint-slices/)
+* Read about [EndpointSlices](/docs/concepts/services-networking/endpoint-slices/)
 
 {{% /capture %}}

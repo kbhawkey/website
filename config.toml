@@ -246,7 +246,7 @@ language_alternatives = ["en"]
 
 [languages.id]
 title = "Kubernetes"
-description = "Production-Grade Container Orchestration"
+description = "Orkestrasi Kontainer dengan Skala Produksi"
 languageName ="Bahasa Indonesia"
 weight = 10
 contentDir = "content/id"
@@ -286,3 +286,14 @@ time_format_blog = "02.01.2006"
 # A list of language codes to look for untranslated content, ordered from left to right.
 language_alternatives = ["en"]
 
+[languages.pl]
+title = "Kubernetes"
+description = "Produkcyjny system zarządzania kontenerami"
+languageName = "Polski"
+weight = 13
+contentDir = "content/pl"
+
+[languages.pl.params]
+time_format_blog = "01.02.2006"
+# A list of language codes to look for untranslated content, ordered from left to right.
+language_alternatives = ["en"]
