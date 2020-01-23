@@ -4,6 +4,7 @@ reviewers:
 - balopat
 - aaron-prindle
 title: Installing Kubernetes with Minikube
+weight: 30
 content_template: templates/concept
 ---
 
@@ -409,7 +410,7 @@ Host folder sharing is not implemented in the KVM driver yet.
 | VirtualBox | Linux | /home | /hosthome |
 | VirtualBox | macOS | /Users | /Users |
 | VirtualBox | Windows | C://Users | /c/Users |
-| VMware Fusion | macOS | /Users | /Users |
+| VMware Fusion | macOS | /Users | /mnt/hgfs/Users |
 | Xhyve | macOS | /Users | /Users |
 
 ## Private Container Registries

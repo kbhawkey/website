@@ -69,7 +69,6 @@ aliases:
     - kbhawkey
     - makoscafee
     - rajakavitha1
-    - ryanmcginnis
     - sftim
     - simplytunde
     - steveperry-53
@@ -97,6 +96,8 @@ aliases:
     - jygastaud
     - awkif
     - oussemos
+    - anthonydahanne
+    - feloy
   sig-docs-fr-reviews: # PR reviews for French content
     - remyleone
     - perriea
@@ -109,6 +110,8 @@ aliases:
     - jygastaud
     - awkif
     - oussemos
+    - anthonydahanne
+    - feloy
   sig-docs-hi-owners: # Admins for Hindi content
     - avidLearnerInProgress
     - daminisatya
