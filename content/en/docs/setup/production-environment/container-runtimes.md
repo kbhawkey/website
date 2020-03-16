@@ -75,7 +75,7 @@ Use the following commands to install Docker on your system:
 ## Set up the repository:
 ### Install packages to allow apt to use a repository over HTTPS
 apt-get update && apt-get install -y \
-  apt-transport-https ca-certificates curl software-properties-common
+  apt-transport-https ca-certificates curl software-properties-common gnupg2
 
 ### Add Docker’s official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -161,6 +161,11 @@ for more information.
 This section contains the necessary steps to install `CRI-O` as CRI runtime.
 
 Use the following commands to install CRI-O on your system:
+
+{{< note >}}
+The CRI-O major and minor versions must match the Kubernetes major and minor versions.
+For more information, see the [CRI-O compatiblity matrix](https://github.com/cri-o/cri-o).
+{{< /note >}}
 
 ### Prerequisites
 

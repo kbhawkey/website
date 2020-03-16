@@ -18,7 +18,7 @@ updating, and deleting primary resources via the standard HTTP verbs (POST, PUT,
 
 ## Standard API terminology
 
-Most Kubernetes API resource types are "objects" - they represent a concrete instance of a concept on the cluster, like a pod or namespace. A smaller number of API resource types are "virtual" - they often represent operations rather than objects, such as a permission check (use a POST with a JSON-encoded body of `SubjectAccessReview` to the `subjectaccessreviews` resource). All objects will have a unique name to allow idempotent creation and retrieval, but virtual resource types may not have unique names if they are not retrievable or do not rely on idempotency.
+Most Kubernetes API resource types are [objects](/docs/concepts/overview/working-with-objects/kubernetes-objects/#kubernetes-objects): they represent a concrete instance of a concept on the cluster, like a pod or namespace. A smaller number of API resource types are "virtual" - they often represent operations rather than objects, such as a permission check (use a POST with a JSON-encoded body of `SubjectAccessReview` to the `subjectaccessreviews` resource). All objects will have a unique name to allow idempotent creation and retrieval, but virtual resource types may not have unique names if they are not retrievable or do not rely on idempotency.
 
 Kubernetes generally leverages standard RESTful terminology to describe the API concepts:
 
@@ -89,7 +89,7 @@ A given Kubernetes server will only preserve a historical list of changes for a 
 
 ### Watch bookmarks
 
-To mitigate the impact of short history window, we introduced a concept of `bookmark` watch event. It is a special kind of event to pass an information that all changes up to a given `resourceVersion` client is requesting has already been send. Object returned in that event is of the type requested by the request, but only `resourceVersion` field is set, e.g.:
+To mitigate the impact of short history window, we introduced a concept of `bookmark` watch event. It is a special kind of event to pass an information that all changes up to a given `resourceVersion` client is requesting has already been sent. Object returned in that event is of the type requested by the request, but only `resourceVersion` field is set, e.g.:
 
         GET /api/v1/namespaces/test/pods?watch=1&resourceVersion=10245&allowWatchBookmarks=true
         ---
@@ -334,16 +334,16 @@ are not vulnerable to ordering changes in the list.
 Once the last finalizer is removed, the resource is actually removed from etcd.
 
 
-## Dry run
+## Dry-run
 
-{{< feature-state for_k8s_version="v1.13" state="beta" >}} In version 1.13, the dry run beta feature is enabled by default. The modifying verbs (`POST`, `PUT`, `PATCH`, and `DELETE`) can accept requests in a dry run mode. Dry run mode helps to evaluate a request through the typical request stages (admission chain, validation, merge conflicts) up until persisting objects to storage. The response body for the request is as close as possible to a non dry run response. The system guarantees that dry run requests will not be persisted in storage or have any other side effects.
+{{< feature-state for_k8s_version="v1.13" state="beta" >}} In version 1.13, the dry-run beta feature is enabled by default. The modifying verbs (`POST`, `PUT`, `PATCH`, and `DELETE`) can accept requests in a dry-run mode. DryRun mode helps to evaluate a request through the typical request stages (admission chain, validation, merge conflicts) up until persisting objects to storage. The response body for the request is as close as possible to a non-dry-run response. The system guarantees that dry-run requests will not be persisted in storage or have any other side effects.
 
 
-### Make a dry run request
+### Make a dry-run request
 
-Dry run is triggered by setting the `dryRun` query parameter. This parameter is a string, working as an enum, and in 1.13 the only accepted values are:
+Dry-run is triggered by setting the `dryRun` query parameter. This parameter is a string, working as an enum, and in 1.13 the only accepted values are:
 
-* `All`: Every stage runs as normal, except for the final storage stage. Admission controllers are run to check that the request is valid, mutating controllers mutate the request, merge is performed on `PATCH`, fields are defaulted, and schema validation occurs. The changes are not persisted to the underlying storage, but the final object which would have been persisted is still returned to the user, along with the normal status code. If the request would trigger an admission controller which would have side effects, the request will be failed rather than risk an unwanted side effect. All built in admission control plugins support dry run. Additionally, admission webhooks can declare in their [configuration object](/docs/reference/generated/kubernetes-api/v1.13/#webhook-v1beta1-admissionregistration-k8s-io) that they do not have side effects by setting the sideEffects field to "None". If a webhook actually does have side effects, then the sideEffects field should be set to "NoneOnDryRun", and the webhook should also be modified to understand the `DryRun` field in AdmissionReview, and prevent side effects on dry run requests.
+* `All`: Every stage runs as normal, except for the final storage stage. Admission controllers are run to check that the request is valid, mutating controllers mutate the request, merge is performed on `PATCH`, fields are defaulted, and schema validation occurs. The changes are not persisted to the underlying storage, but the final object which would have been persisted is still returned to the user, along with the normal status code. If the request would trigger an admission controller which would have side effects, the request will be failed rather than risk an unwanted side effect. All built in admission control plugins support dry-run. Additionally, admission webhooks can declare in their [configuration object](/docs/reference/generated/kubernetes-api/v1.13/#webhook-v1beta1-admissionregistration-k8s-io) that they do not have side effects by setting the sideEffects field to "None". If a webhook actually does have side effects, then the sideEffects field should be set to "NoneOnDryRun", and the webhook should also be modified to understand the `DryRun` field in AdmissionReview, and prevent side effects on dry-run requests.
 * Leave the value empty, which is also the default: Keep the default modifying behavior.
 
 For example:
@@ -352,12 +352,28 @@ For example:
         Content-Type: application/json
         Accept: application/json
 
-The response would look the same as for non dry run request, but the values of some generated fields may differ.
+The response would look the same as for non-dry-run request, but the values of some generated fields may differ.
 
+### Dry-run authorization
+
+Authorization for dry-run and non-dry-run requests is identical. Thus, to make
+a dry-run request, the user must be authorized to make the non-dry-run request.
+
+For example, to run a dry-run `PATCH` for Deployments, you must have the
+`PATCH` permission for Deployments, as in the example of the RBAC rule below.
+
+```yaml
+rules:
+- apiGroups: ["extensions", "apps"]
+  resources: ["deployments"]
+  verbs: ["patch"]
+```
+
+See [Authorization Overview](/docs/reference/access-authn-authz/authorization/).
 
 ### Generated values
 
-Some values of an object are typically generated before the object is persisted. It is important not to rely upon the values of these fields set by a dry run request, since these values will likely be different in dry run mode from when the real request is made. Some of these fields are:
+Some values of an object are typically generated before the object is persisted. It is important not to rely upon the values of these fields set by a dry-run request, since these values will likely be different in dry-run mode from when the real request is made. Some of these fields are:
 
 * `name`: if `generateName` is set, `name` will have a unique random name
 * `creationTimestamp`/`deletionTimestamp`: records the time of creation/deletion
@@ -557,13 +573,21 @@ more information about how an object's schema is used to make decisions when
 merging, see
 [sigs.k8s.io/structured-merge-diff](https://sigs.k8s.io/structured-merge-diff).
 
+A number of markers were added in Kubernetes 1.16 and 1.17, to allow API developers to describe the merge strategy supported by lists, maps, and structs. These markers can be applied to objects of the respective type, in Go files or OpenAPI specs.
+
+| Golang marker | OpenAPI extension | Accepted values | Description | Introduced in |
+|---|---|---|---|---|
+| `//+listType` | `x-kubernetes-list-type` | `atomic`/`set`/`map` | Applicable to lists. `atomic` and `set` apply to lists with scalar elements only. `map` applies to lists of nested types only. If configured as `atomic`, the entire list is replaced during merge; a single manager manages the list as a whole at any one time. If `granular`, different managers can manage entries separately. | 1.16          |
+| `//+listMapKeys` | `x-kubernetes-list-map-keys` | Slice of map keys that uniquely identify entries for example `["port", "protocol"]` | Only applicable when `+listType=map`. A slice of strings whose values in combination must uniquely identify list entries. | 1.16 |
+| `//+mapType` | `x-kubernetes-map-type` | `atomic`/`granular` | Applicable to maps. `atomic` means that the map can only be entirely replaced by a single manager. `granular` means that the map supports separate managers updating individual fields. | 1.17 |
+| `//+structType` | `x-kubernetes-map-type` | `atomic`/`granular` | Applicable to structs; otherwise same usage and OpenAPI annotation as `//+mapType`.| 1.17 |
+
 ### Custom Resources
 
 By default, Server Side Apply treats custom resources as unstructured data. All
 keys are treated the same as struct fields, and all lists are considered atomic.
-If the validation field is specified in the Custom Rseource Definition, it is
+If the validation field is specified in the Custom Resource Definition, it is
 used when merging objects of this type.
-
 
 ### Using Server-Side Apply in a controller
 

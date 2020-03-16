@@ -73,6 +73,8 @@ balancer in between your application and the backend Pods.
 A Service in Kubernetes is a REST object, similar to a Pod.  Like all of the
 REST objects, you can `POST` a Service definition to the API server to create
 a new instance.
+The name of a Service object must be a valid
+[DNS label name](/docs/concepts/overview/working-with-objects/names#dns-label-names).
 
 For example, suppose you have a set of Pods that each listen on TCP port 9376
 and carry a label `app=MyApp`:
@@ -167,6 +169,9 @@ subsets:
       - port: 9376
 ```
 
+The name of the Endpoints object must be a valid
+[DNS subdomain name](/docs/concepts/overview/working-with-objects/names#dns-subdomain-names).
+
 {{< note >}}
 The endpoint IPs _must not_ be: loopback (127.0.0.0/8 for IPv4, ::1/128 for IPv6), or
 link-local (169.254.0.0/16 and 224.0.0.0/24 for IPv4, fe80::/64 for IPv6).
@@ -225,7 +230,8 @@ There are a few reasons for using proxying for Services:
 In this mode, kube-proxy watches the Kubernetes master for the addition and
 removal of Service and Endpoint objects. For each Service it opens a
 port (randomly chosen) on the local node.  Any connections to this "proxy port"
-is proxied to one of the Service's backend Pods (as reported via
+are
+proxied to one of the Service's backend Pods (as reported via
 Endpoints). kube-proxy takes the `SessionAffinity` setting of the Service into
 account when deciding which backend Pod to use.
 
@@ -276,9 +282,9 @@ state.
 When accessing a Service, IPVS directs traffic to one of the backend Pods.
 
 The IPVS proxy mode is based on netfilter hook function that is similar to
-iptables mode, but uses hash table as the underlying data structure and works
+iptables mode, but uses a hash table as the underlying data structure and works
 in the kernel space.
-That means kube-proxy in IPVS mode redirects traffic with a lower latency than
+That means kube-proxy in IPVS mode redirects traffic with lower latency than
 kube-proxy in iptables mode, with much better performance when synchronising
 proxy rules. Compared to the other proxy modes, IPVS mode also supports a
 higher throughput of network traffic.
@@ -310,7 +316,7 @@ about Kubernetes or Services or Pods.
 
 If you want to make sure that connections from a particular client
 are passed to the same Pod each time, you can select the session affinity based
-on client's IP addresses by setting `service.spec.sessionAffinity` to "ClientIP"
+on the client's IP addresses by setting `service.spec.sessionAffinity` to "ClientIP"
 (the default is "None").
 You can also set the maximum session sticky time by setting
 `service.spec.sessionAffinityConfig.clientIP.timeoutSeconds` appropriately.
@@ -421,7 +427,7 @@ Pods in other Namespaces must qualify the name as `my-service.my-ns`. These name
 will resolve to the cluster IP assigned for the Service.
 
 Kubernetes also supports DNS SRV (Service) records for named ports.  If the
-`"my-service.my-ns"` Service has a port named `"http"` with protocol set to
+`"my-service.my-ns"` Service has a port named `"http"` with the protocol set to
 `TCP`, you can do a DNS SRV query for `_http._tcp.my-service.my-ns` to discover
 the port number for `"http"`, as well as the IP address.
 
@@ -506,7 +512,7 @@ For example, if you start kube-proxy with the `--nodeport-addresses=127.0.0.0/8`
 If you want a specific port number, you can specify a value in the `nodePort`
 field. The control plane will either allocate you that port or report that
 the API transaction failed.
-This means that you need to take care about possible port collisions yourself.
+This means that you need to take care of possible port collisions yourself.
 You also have to use a valid port number, one that's inside the range configured
 for NodePort use.
 
@@ -549,7 +555,7 @@ status:
 Traffic from the external load balancer is directed at the backend Pods. The cloud provider decides how it is load balanced.
 
 For LoadBalancer type of Services, when there is more than one port defined, all
-ports must have the same protocol and the protocol must be one of `TCP`, `UDP`
+ports must have the same protocol and the protocol must be one of `TCP`, `UDP`,
 and `SCTP`.
 
 Some cloud providers allow you to specify the `loadBalancerIP`. In those cases, the load-balancer is created
@@ -677,7 +683,7 @@ SSL, the ELB expects the Pod to authenticate itself over the encrypted
 connection, using a certificate.
 
 HTTP and HTTPS selects layer 7 proxying: the ELB terminates
-the connection with the user, parse headers and inject the `X-Forwarded-For`
+the connection with the user, parses headers, and injects the `X-Forwarded-For`
 header with the user's IP address (Pods only see the IP address of the
 ELB at the other end of its connection) when forwarding requests.
 
@@ -849,7 +855,7 @@ traffic. Nodes without any Pods for a particular LoadBalancer Service will fail
 the NLB Target Group's health check on the auto-assigned
 `.spec.healthCheckNodePort` and not receive any traffic.
 
-In order to achieve even traffic, either use a DaemonSet, or specify a
+In order to achieve even traffic, either use a DaemonSet or specify a
 [pod anti-affinity](/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity)
 to not locate on the same node.
 
@@ -1171,19 +1177,6 @@ SCTP is not supported on Windows based nodes.
 {{< warning >}}
 The kube-proxy does not support the management of SCTP associations when it is in userspace mode.
 {{< /warning >}}
-
-## Future work
-
-In the future, the proxy policy for Services can become more nuanced than
-simple round-robin balancing, for example master-elected or sharded.  We also
-envision that some Services will have "real" load balancers, in which case the
-virtual IP address will simply transport the packets there.
-
-The Kubernetes project intends to improve support for L7 (HTTP) Services.
-
-The Kubernetes project intends to have more flexible ingress modes for Services
-which encompass the current ClusterIP, NodePort, and LoadBalancer modes and more.
-
 
 {{% /capture %}}
 
