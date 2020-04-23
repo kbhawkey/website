@@ -7,7 +7,7 @@ feature:
   title: Secret and configuration management
   description: >
     Deploy and update secrets and application configuration without rebuilding your image and without exposing secrets in your stack configuration.
-weight: 50
+weight: 30
 ---
 
 {{% capture overview %}}
@@ -853,6 +853,43 @@ create and mount a volume containing it. None of the Pod's containers will
 start until all the Pod's volumes are mounted.
 
 ## Use cases
+
+### Use-Case: As container environment variables
+
+Create a secret
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  USER_NAME: YWRtaW4=
+  PASSWORD: MWYyZDFlMmU2N2Rm
+```
+
+Create the Secret:
+```shell
+kubectl apply -f mysecret.yaml
+```
+
+Use `envFrom` to define all of the Secret’s data as container environment variables. The key from the Secret becomes the environment variable name in the Pod.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "env" ]
+      envFrom:
+      - secretRef:
+          name: mysecret
+  restartPolicy: Never
+```
 
 ### Use-Case: Pod with ssh keys
 
