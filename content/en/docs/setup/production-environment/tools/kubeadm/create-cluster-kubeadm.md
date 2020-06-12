@@ -313,12 +313,11 @@ kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
 {{% /tab %}}
 
 {{% tab name="Cilium" %}}
-For Cilium to work correctly, you must pass `--pod-network-cidr=10.217.0.0/16` to `kubeadm init`.
 
 To deploy Cilium you just need to run:
 
 ```shell
-kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.6/install/kubernetes/quick-install.yaml
+kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.8/install/kubernetes/quick-install.yaml
 ```
 
 Once all Cilium Pods are marked as `READY`, you start using your cluster.
@@ -496,10 +495,10 @@ and `scp` using that other user instead.
 
 The `admin.conf` file gives the user _superuser_ privileges over the cluster.
 This file should be used sparingly. For normal users, it's recommended to
-generate an unique credential to which you whitelist privileges. You can do
+generate an unique credential to which you grant privileges. You can do
 this with the `kubeadm alpha kubeconfig user --client-name <CN>`
 command. That command will print out a KubeConfig file to STDOUT which you
-should save to a file and distribute to your user. After that, whitelist
+should save to a file and distribute to your user. After that, grant
 privileges by using `kubectl create (cluster)rolebinding`.
 {{< /note >}}
 
