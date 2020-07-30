@@ -134,4 +134,3 @@ Ditemukan pada [#26120](https://github.com/kubernetes/kubernetes/issues/26120)
 
 [Dokumen Desain 2](https://git.k8s.io/community/contributors/design-proposals/api-machinery/synchronous-garbage-collection.md)
 
-

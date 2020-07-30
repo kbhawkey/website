@@ -500,7 +500,6 @@ data:
 ```
 
 
-
 <!-- 
 ## CoreDNS configuration equivalent to kube-dns
 

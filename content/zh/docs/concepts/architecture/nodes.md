@@ -572,4 +572,3 @@ API object can be found at:
 -->
 * 了解有关[节点组件](/docs/concepts/overview/components/#node-components)的信息。
 * 阅读有关节点级拓扑的信息：[控制节点上的拓扑管理策略](/docs/tasks/administer-cluster/topology-manager/)。
-

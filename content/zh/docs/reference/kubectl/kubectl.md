@@ -626,4 +626,3 @@ kubectl [flags]
 * [kubectl wait](/docs/reference/generated/kubectl/kubectl-commands#wait)	 - 实验性：等待一个或多个资源达到某种状态
 
 
-

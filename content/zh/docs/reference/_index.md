@@ -23,19 +23,10 @@ This section of the Kubernetes documentation contains references.
 -->
 这是 Kubernetes 文档的参考部分。
 
-<!-- body -->
+{{% /capture %}}
 
-<!--
-## API Reference
+{{% capture body %}}
 
-* [Kubernetes API Overview](/docs/reference/using-api/api-overview/) - Overview of the API for Kubernetes.
-* Kubernetes API Versions
-  * [1.17](/docs/reference/generated/kubernetes-api/v1.17/)
-  * [1.16](/docs/reference/generated/kubernetes-api/v1.16/)
-  * [1.15](/docs/reference/generated/kubernetes-api/v1.15/)
-  * [1.14](/docs/reference/generated/kubernetes-api/v1.14/)
-  * [1.13](/docs/reference/generated/kubernetes-api/v1.13/)
--->
 ## API 参考
 
 * [Kubernetes API 概述](/docs/reference/using-api/api-overview/) - Kubernetes API 概述。
@@ -45,6 +36,29 @@ This section of the Kubernetes documentation contains references.
   * [1.15](/docs/reference/generated/kubernetes-api/v1.15/)
   * [1.14](/docs/reference/generated/kubernetes-api/v1.14/)
   * [1.13](/docs/reference/generated/kubernetes-api/v1.13/)
+
+<!--
+## API Reference
+
+* [Kubernetes API Overview](/docs/reference/using-api/api-overview/) - Overview of the API for Kubernetes.
+* Kubernetes API Versions
+  * [1.16](/docs/reference/generated/kubernetes-api/v1.16/)
+  * [1.15](/docs/reference/generated/kubernetes-api/v1.15/)
+  * [1.14](/docs/reference/generated/kubernetes-api/v1.14/)
+  * [1.13](/docs/reference/generated/kubernetes-api/v1.13/)
+  * [1.12](/docs/reference/generated/kubernetes-api/v1.12/)
+-->
+## API 参考
+
+## API 客户端库
+
+如果您需要通过编程语言调用 Kubernetes API，您可以使用
+[客户端库](/docs/reference/using-api/client-libraries/)。以下是官方支持的客户端库：
+
+- [Kubernetes Go 语言客户端库](https://github.com/kubernetes/client-go/)
+- [Kubernetes Python 语言客户端库](https://github.com/kubernetes-client/python)
+- [Kubernetes Java 语言客户端库](https://github.com/kubernetes-client/java)
+- [Kubernetes JavaScript 语言客户端库](https://github.com/kubernetes-client/javascript)
 
 <!--
 ## API Client Libraries

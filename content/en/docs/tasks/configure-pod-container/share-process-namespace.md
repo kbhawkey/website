@@ -29,7 +29,6 @@ include debugging utilities like a shell.
 {{< include "task-tutorial-prereqs.md" >}} {{< version-check >}}
 
 
-
 <!-- steps -->
 
 ## Configure a Pod

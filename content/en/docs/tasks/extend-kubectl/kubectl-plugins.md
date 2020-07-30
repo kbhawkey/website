@@ -13,7 +13,6 @@ This guide demonstrates how to install and write extensions for [kubectl](/docs/
 of plugins as a means of utilizing these building blocks to create more complex behavior. Plugins extend `kubectl` with new sub-commands, allowing for new and custom features not included in the main distribution of `kubectl`.
 
 
-
 ## {{% heading "prerequisites" %}}
 
 
@@ -387,5 +386,4 @@ installs easier.
   In case of any questions, feel free to reach out to the
   [SIG CLI team](https://github.com/kubernetes/community/tree/master/sig-cli).
 * Read about [Krew](https://krew.dev/), a package manager for kubectl plugins.
-
 

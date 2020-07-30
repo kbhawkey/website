@@ -107,7 +107,6 @@ kubectl version --client
 
 {{< /tabs >}}
 
-
 ## Install kubectl on macOS
 
 ### Install kubectl binary with curl on macOS

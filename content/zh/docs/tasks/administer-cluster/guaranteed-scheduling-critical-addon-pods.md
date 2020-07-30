@@ -37,4 +37,3 @@ To be considered critical, the pod has to run in the `kube-system` namespace (co
 或者，也可以为 Pod 添加名为 `scheduler.alpha.kubernetes.io/critical-pod`、值为空字符串的注解。
 不过，这一注解从 1.13 版本开始不再推荐使用，并将在 1.14 中删除。
 
-

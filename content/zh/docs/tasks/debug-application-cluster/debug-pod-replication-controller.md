@@ -248,4 +248,3 @@ related to the replication controller.
 -->
 您也可以使用`kubectl describe rc ${CONTROLLER_NAME}`来检查和Replication Controllers有关的事件。
 
-

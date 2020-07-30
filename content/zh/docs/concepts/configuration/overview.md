@@ -264,4 +264,3 @@ The caching semantics of the underlying image provider make even `imagePullPolic
 - 使用`kubectl run`和`kubectl expose`来快速创建单容器部署和服务。
   有关示例，请参阅[使用服务访问集群中的应用程序](/docs/tasks/access-application-cluster/service-access-application-cluster/)。
 
-

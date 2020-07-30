@@ -391,4 +391,3 @@ DaemonSet 与 [Deployments](/docs/concepts/workloads/controllers/deployment/) �
 为无状态的 Service 使用 Deployments，比如前端 Frontend 服务，实现对副本的数量进行扩缩容、平滑升级，比基于精确控制 Pod 运行在某个主机上要重要得多。
 需要 Pod 副本总是运行在全部或特定主机上，并需要先于其他 Pod 启动，当这被认为非常重要时，应该使用 Daemon Controller。
 
-

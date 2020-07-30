@@ -216,4 +216,3 @@ kubectl api-resources --namespaced=false
 * 进一步了解[删除命名空间](/docs/tasks/administer-cluster/namespaces/#deleting-a-namespace)。
 
 
-

@@ -68,4 +68,3 @@ Nota: non tutte le distro vengono mantenute attivamente. Scegli le distro che so
 * [Registrazione e monitoraggio delle attività del cluster](/docs/concepts/cluster-administration/logging/) spiega come funziona il logging in Kubernetes e come implementarlo.
 
 
-

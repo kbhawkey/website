@@ -476,4 +476,3 @@ provisioned). For details, see the [kubeadm join](/docs/reference/setup-tools/ku
 * [kubeadm join](/docs/reference/setup-tools/kubeadm/kubeadm-join/)启动一个 Kubernetes 工作节点并且将其加入到集群
 * [kubeadm upgrade](/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/)将 Kubernetes 集群升级到新版本
 * [kubeadm reset](/docs/reference/setup-tools/kubeadm/kubeadm-reset/)使用 `kubeadm init` 或 `kubeadm join` 来恢复对节点的变更
-

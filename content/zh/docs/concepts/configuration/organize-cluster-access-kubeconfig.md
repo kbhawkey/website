@@ -278,4 +278,3 @@ kubeconfig 文件中的文件和路径引用是相对于 kubeconfig 文件的位
 * [`kubectl config`](/docs/reference/generated/kubectl/kubectl-commands#config)
 
 
-

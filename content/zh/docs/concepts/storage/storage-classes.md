@@ -431,7 +431,6 @@ parameters:
   type: pd-standard
   replication-type: none
 ```
-
 <!--
 * `type`: `pd-standard` or `pd-ssd`. Default: `pd-standard`
 * `zone` (Deprecated): GCE zone. If neither `zone` nor `zones` is specified, volumes are
@@ -564,7 +563,6 @@ parameters:
 * `clusterid`：`630372ccdc720a92c681fb928f27b53f` 是集群的 ID，当分配卷时，Heketi 将会使用这个文件。它也可以是一个 clusterid 列表，例如：
   `"8452344e2becec931ece4e33c4674e4e,42982310de6c63381718ccfa6d8cf397"`。这个是可选参数。
 * `gidMin`，`gidMax`：storage class GID 范围的最小值和最大值。在此范围（gidMin-gidMax）内的唯一值（GID）将用于动态分配卷。这些是可选的值。如果不指定，卷将被分配一个 2000-2147483647 之间的值，这是 gidMin 和 gidMax 的默认值。
-
 <!--
 * `volumetype` : The volume type and its parameters can be configured with this
   optional value. If the volume type is not mentioned, it's up to the provisioner

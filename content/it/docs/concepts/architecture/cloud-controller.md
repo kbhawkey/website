@@ -242,4 +242,3 @@ I seguenti fornitori di cloud hanno una implementazione di CCM:
 Le istruzioni complete per la configurazione e l'esecuzione del CCM sono fornite
 [qui](/docs/tasks/administer-cluster/running-cloud-controller/#cloud-controller-manager).
 
-

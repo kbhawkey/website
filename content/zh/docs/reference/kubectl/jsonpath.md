@@ -140,4 +140,3 @@ C:\> kubectl get pods -o=jsonpath="{range .items[*]}{.metadata.name}{'\t'}{.stat
 C:\> kubectl get pods -o=jsonpath="{range .items[*]}{.metadata.name}{\"\t\"}{.status.startTime}{\"\n\"}{end}"
 ```
 
-

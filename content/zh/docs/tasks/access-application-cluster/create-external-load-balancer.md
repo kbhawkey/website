@@ -309,4 +309,3 @@ Internal pod to pod traffic should behave similar to ClusterIP services, with eq
 
 内部 pod 到 pod 的流量应该与 ClusterIP 服务类似，所有 pod 的概率相同。
 
-

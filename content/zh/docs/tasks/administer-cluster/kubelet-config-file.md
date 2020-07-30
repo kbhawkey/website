@@ -116,4 +116,3 @@ is considered the default "last known good" configuration by the automatic rollb
 如果您正在使用 [动态 Kubelet 配置](/docs/tasks/administer-cluster/reconfigure-kubelet) 特性，那么自动回滚机制将认为是 "最后已知正常（last known good）" 的配置，通过 `--config` 提供的配置与覆盖这些值的任何参数的结合。
 
 
-

@@ -130,4 +130,3 @@ If `PersistentVolumeLabel` does not support automatic labeling of your Persisten
 adding the labels manually (or adding support for `PersistentVolumeLabel`). With `PersistentVolumeLabel`, the scheduler prevents Pods from mounting volumes in a different zone. If your infrastructure doesn't have this constraint, you don't need to add the zone labels to the volumes at all.
 
 
-
